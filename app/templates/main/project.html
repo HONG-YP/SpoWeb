@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스포 적발 강력 1팀</title>
+</head>
+<style>
+    *{
+        margin : 0;
+        padding : 0;
+    }
+    body{
+        background-color :#707070;
+        color : #ffffff;
+        font-family: 'NanumSquareRound';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+        font-style: normal;
+    }
+    .center{
+        color : #6dae3e;
+        position : static;
+        padding-top : 120px;
+        padding-bottom : 30px;
+        text-align: center;
+        font-size : 35pt;
+        padding-bottom : 50px;
+        font-weight : 800;
+        text-transform : uppercase;
+        margin : 0;
+    }
+    .wrapper{
+        margin : 0 auto;
+        width : 900px;
+        height : 570px;
+        background-color : #515c5d;
+        border : 20px solid #ffffff;
+    }
+    #logo{
+        width : 200px;
+        height : auto;
+        padding : 20px;
+        float : left;
+    }
+    #detail {
+        font-size : 15pt;
+        padding-top : 40px;
+        line-height : 150%;
+        word-break : keep-all;
+        padding-left : 10px;
+        padding-right : 20px;
+        padding-bottom : 20px;
+        word-spacing : -1.5px;
+    }
+    #part {
+        margin-top : 20px;
+        padding : 20px;
+        font-size : 16pt;
+        line-height : 150%;
+        font-weight : bold;
+    }
+    #btn{
+        font-family: 'NanumSquareRound';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+        font-style: normal;
+        font-size : 13pt;
+        padding : 5px 8px;
+        cursor : pointer;
+        border-radius : 15%;
+        background-color: #6dae3e;
+        color : #ffffff;
+        float : right;
+        margin-top : 30px;
+    }
+
+</style>
+
+<body>
+    <p class = "center">스포 적발 강력 1팀</p>
+    <div class = "wrapper">
+        <div id = "des">
+            <img id = "logo" src="{{ url_for('static', filename='img/logo.png')}}">
+           <p id = "detail">
+                <a style = "font-weight : bold; font-size : 18pt; word-spacing : 1px">[스포의 스포] : 네 스포가 스포라는 것을 스포한다!</a><br><br><br>
+                영화 리뷰에 대한 스포 여부 및 스포 확률을 조회할 수 있는 웹사이트입니다.<br>
+                특정 영화나 장르에 관계없이 범용적인 스포일러를 감지하는 것을 목표로 합니다.
+            </p>
+        </div>
+        <section id = "part">
+            <form method="post" action="./main/success">
+                <div>
+                    <p>네이버 영화에 리뷰를 작성하기 전에 <br>
+                        본인의 리뷰가 스포인지 아닌지 먼저 점검해 보세요!</p>
+                    <!--장르 선택 관련한 select 태그-->
+                    <div id = "gen">
+                        <form action = "#">장르 :
+                            <select name = "genre" onchange="handleOnChange(this)">
+                                <option value = "0"></option>
+                                <option value = "1">공포/스릴러</option>
+                                <option value = "2">드라마</option>
+                                <option value = "2">로맨스</option>
+                                <option value = "1">액션</option>
+                                <option value = "1">SF</option>
+                                <option value = "2">코미디</option>
+                            </select>
+                            <!--submit 하는 거 필요하면 추가해야-->
+                        </form>
+                    </div>
+                    <textarea cols = "102" rows = "7" id = "review" name = 'review' placeholder = "리뷰를 입력하세요."></textarea>
+                    <br>
+                    <input type = "submit" id = "btn" value = "확인" name="Submit">
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
